@@ -30,17 +30,14 @@
     <div class="w3-row" style="padding-bottom:2em;">
         <h3 class="w3-center">Stock Management System</h3>
     </div>
-<!--
-    {% if request.user.is_authenticated %}
-    <p>welcome</p>
-    {% else %}
+
+
     <div class="w3-row">
         <div class="w3-container w3-col l9">
-            <p>{{ error_msg }}</p>
+            <p class = "w3-text-white">{{ error_msg }}</p>
         </div>
-        {% endif %}
     </div>
--->
+
     <form class="w3-container" action="{% url 'accounts:login_user' %}" method="post">
         {% csrf_token %}
 

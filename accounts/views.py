@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, HttpResponseRedirect
 from django.core import urlresolvers
 
+def index_display(request):
+    return render(request, 'accounts/index.html')
 
 def user_login(request):
     postdata = request.POST.copy()
@@ -15,7 +17,6 @@ def user_login(request):
         return HttpResponseRedirect(url)
     else:
         error_msg = "Incorrect username or password. Please try again"
-        error_class = "card-panel red lighten-1"
         return render(request, 'accounts/index.html', locals())
 
 
