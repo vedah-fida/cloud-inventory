@@ -1,0 +1,78 @@
+<!Doctype html>
+<head>
+    <title>Cloud Inventory Login</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <style>
+	#body {
+		min-height: 700px;
+		width:100%;
+		background-image: url("static/accounts/stock.png");
+	}
+
+
+
+    </style>
+</head>
+
+<body id="body">
+<div class="w3-container w3-indigo">
+
+    <div class="w3-row" style="padding-bottom:1em;">
+        <div class="w3-col l12 w3-center">
+            <h2>Cloud Inventory</h2>
+        </div>
+    </div>
+
+    <div class="w3-row" style="padding-bottom:2em;">
+        <h3 class="w3-center">Stock Management System</h3>
+    </div>
+<!--
+    {% if request.user.is_authenticated %}
+    <p>welcome</p>
+    {% else %}
+    <div class="w3-row">
+        <div class="w3-container w3-col l9">
+            <p>{{ error_msg }}</p>
+        </div>
+        {% endif %}
+    </div>
+-->
+    <form class="w3-container" action="{% url 'accounts:login_user' %}" method="post">
+        {% csrf_token %}
+
+        <div class="w3-row" style="padding-bottom:2em;">
+            <div class="w3-container w3-col l2" style="width:15%;">
+                <label for="username">Username</label>
+
+            </div>
+
+            <div class="w3-container w3-col l4">
+                <input id="username" type="text" name="username" required/>
+            </div>
+
+            <div class="w3-container w3-col l2" style="width:15%;">
+                <label for="password">Password</label>
+
+            </div>
+            <div class="w3-container w3-col l4">
+                <input id="password" type="password" class="validate" name="password" required/>
+            </div>
+        </div>
+
+
+        <div class="w3-row" style="padding-bottom:2em;">
+            <div class="w3-center">
+                <button class="w3-button w3-teal" type="submit">Login</button>
+            </div>
+        </div>
+    </form>
+    {% block body %}
+
+    {% endblock %}
+</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block title %}Products {% endblock %}
+
+{% block body %}
+<!--top bar-->
+<div class="w3-container">
+    <div class="w3-bar w3-indigo">
+        <div class="w3-bar-item">Search by date</div>
+        <div class="w3-dropdown-click w3-teal">
+            <button class="w3-button" onclick="myFunction()">
+                All dates <i class="fa fa-caret-down"></i>
+            </button>
+            <div id="demo" class="w3-dropdown-content w3-bar-block w3-card-2">
+                <a href="#" class="w3-bar-item w3-button">Today</a>
+                <a href="#" class="w3-bar-item w3-button">Yesterday</a>
+                <a href="#" class="w3-bar-item w3-button">This Week</a>
+                <a href="#" class="w3-bar-item w3-button">This Month</a>
+            </div>
+        </div>
+        <div class="w3-bar-item">Enter Barcode</div>
+        <input type="text" class="w3-bar-item w3-input w3-text-teal" placeholder="Barcode..">
+        <button class="w3-btn w3-green">Apply</button>
+    </div>
+</div> <br>
+<!--end top bar-->
+<!-- products data in a table-->
+<table class="w3-table-all w3-card-4">
+    <tr>
+        <th>Name</th>
+        <th>Date Received</th>
+        <th>Category</th>
+        <th>Barcode</th>
+        <th>Quantity</th>
+        <th>Stock Status</th>
+    </tr>
+    <tr>
+        <td>Jameson</td>
+        <td>12/01/2017</td>
+        <td>wine</td>
+        <td>6447744838</td>
+        <td>12</td>
+        <td>In Stock</td>
+    </tr>
+    <tr>
+        <td>Southern Comfort</td>
+        <td>15/01/2017</td>
+        <td>Whisky</td>
+        <td>82828299</td>
+        <td>22</td>
+        <td>Out of Stock</td>
+    </tr>
+    <tr>
+        <td>Grants</td>
+        <td>01/01/2017</td>
+        <td>Scotch</td>
+        <td>1425251561</td>
+        <td>34</td>
+        <td>In Stock</td>
+    </tr>
+    <tr>
+        <td>Jameson</td>
+        <td>12/01/2017</td>
+        <td>wine</td>
+        <td>6447744838</td>
+        <td>12</td>
+        <td>In Stock</td>
+    </tr>
+</table>
+
+
+<script>
+function myFunction() {
+    var x = document.getElementById("demo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+
+</script>
+
+
+{% endblock %}
