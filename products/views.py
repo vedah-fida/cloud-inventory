@@ -24,7 +24,7 @@ def get_category(request):
 # connecting to the database and get the ALL the products
 def get_products(request):
     products_data = Products.objects.all()
-    return render(request, 'product/index.html', {"product_data": products_data})
+    return render(request, 'product/index.html', {"products_data": products_data})
 
 
 def in_stock(request):
