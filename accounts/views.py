@@ -13,7 +13,7 @@ def user_login(request):
     user = authenticate(username=username, password=password)
     if user is not None and user.is_active:
         login(request, user)
-        url = urlresolvers.reverse('products:products')
+        url = urlresolvers.reverse('products:product_details')
         return HttpResponseRedirect(url)
     else:
         error_msg = "Incorrect username or password. Please try again"
@@ -22,7 +22,7 @@ def user_login(request):
 
 def logout_user(request):
     logout(request)
-    url = urlresolvers.reverse('accounts:login_user')
+    url = urlresolvers.reverse('accounts:index_display')
     return HttpResponseRedirect(url)
 
 

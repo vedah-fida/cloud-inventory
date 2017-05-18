@@ -2,9 +2,79 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>Title</title>
 </head>
 <body>
+<h1>database data</h1>
+{% for category in data %}
+<p>{{ category.category_name }}</p>
+{% endfor %}
 
+{% for product in product_data %}
+<p>{{ product.product_name }}</p>
+{% endfor %}
+
+{% for product in product_data %}
+<p>{{ product.category_type }}</p>
+
+{% endfor %}
+
+<h3>in stock</h3>
+{% for product in products_in_stock %}
+<p>{{ product.product_name }}</p>
+<p>{{ product.product_stock }}
+{% endfor %}
+
+
+<h3>out of stock</h3>
+{% for product in products_out_of_stock %}
+<p>{{ product.product_name }}</p>
+<p>{{ product.product_stock }}</p>
+{% endfor %}
+
+<table class="w3-table-all w3-card-4">
+
+    <tr>
+        <th>Name</th>
+        <th>Date Received</th>
+        <th>Category</th>
+        <th>Barcode</th>
+        <th>Stock Status</th>
+    </tr>
+    <tr>
+        {% for product in products_in_stock %}
+        <td>{{ product.product_name }}</td>
+        <td>{{ product.product_date }}</td>
+        <td>{{ product.category_type }}</td>
+        <td>{{ product.product_barcode }}</td>
+        <td>{{ product.product_stock }}</td>
+    </tr>
+    {% endfor %}
+
+
+</table>
+<br>
+<table class="w3-table-all w3-card-4">
+
+    <tr>
+        <th>Name</th>
+        <th>Date Received</th>
+        <th>Category</th>
+        <th>Barcode</th>
+        <th>Stock Status</th>
+    </tr>
+    <tr>
+        {% for product in products_out_of_stock %}
+        <td>{{ product.product_name }}</td>
+        <td>{{ product.product_date }}</td>
+        <td>{{ product.category_type }}</td>
+        <td>{{ product.product_barcode }}</td>
+        <td>{{ product.product_stock }}</td>
+    </tr>
+    {% endfor %}
+
+
+</table>
 </body>
 </html>
