@@ -20,7 +20,7 @@ class Products(models.Model):
     category_type = models.ForeignKey(Category, on_delete=models.CASCADE)
     product_price = models.IntegerField()
     product_barcode = models.IntegerField()
-    product_stock = models.BooleanField(choices=STOCK_CHOICES, default=IN_STOCK)
+    product_stock = models.BooleanField(default=True)
     product_date = models.DateField()
 
     def __str__(self):
@@ -37,7 +37,7 @@ class Items(models.Model):
     product_code = models.IntegerField()
     product_date = models.DateField()
     product_price = models.IntegerField()
-    product_status = models.BooleanField(choices=STATUS_CHOICES, default=COLLECTED)
+    product_status = models.BooleanField(default=True)
 
     """
     0 is money collected, 1 is still processing

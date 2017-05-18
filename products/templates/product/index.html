@@ -19,7 +19,12 @@
         <td>{{ product.product_date }}</td>
         <td>{{ product.category_type }}</td>
         <td>{{ product.product_barcode }}</td>
-        <td>{{ product.product_stock }}</td>
+        <td>{% if product.product_stock %}
+               In Stock
+            {% else %}
+                Out of Stock
+            {% endif %}
+        </td>
     </tr>
     {% endfor %}
 
@@ -28,19 +33,7 @@
 
 
 <script>
-function myFunction() {
-    var x = document.getElementById("demo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
 
-
-
-
-</script>
 
 
 {% endblock %}
