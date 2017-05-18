@@ -29,7 +29,7 @@ def get_products(request):
 
 def in_stock(request):
     products_in_stock = Products.objects.filter(product_stock=True)
-    return render(request, 'product/in-stock.html', {'products_in_stock': products_in_stock})
+    return render(request, 'product/in-stock.html', {"products_in_stock": products_in_stock})
 
 
 def out_of_stock(request):
