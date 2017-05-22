@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import HttpResponse
 from .models import Products, Category, Items
+import datetime
+
+today = datetime.datetime.now()
 
 
 # Create your views here.
@@ -35,3 +38,41 @@ def in_stock(request):
 def out_of_stock(request):
     products_out_of_stock = Products.objects.filter(product_stock=False)
     return render(request, 'product/out-of-stock.html', {"products_out_of_stock": products_out_of_stock})
+
+
+# get products added today
+def added_today(request):
+    product_added_today = Products.objects.filter(product_date=datetime.datetime.now())
+    return render(request, 'product/products_added_today.html', {'product_added_today': product_added_today})
+
+
+# get products added today
+def added_yesterday(request):
+    product_added_yesterday = Products.objects.filter(product_date=datetime.datetime.now() - datetime.timedelta(days=1))
+    return render(request, 'product/products_added_yesterday.html',
+                  {'product_added_yesterday': product_added_yesterday})
+
+
+# get products added week
+
+
+# get products added this month
+def added_this_month(request):
+    #today = datetime.datetime.now()
+    products_added_this_month = Products.objects.filter(product_date__month=today.month)
+    return render(request, 'product/products_added_this_month.html',
+                  {'products_added_this_month': products_added_this_month})
+
+"""
+# search barcode entered by user
+def barcode_search(request):
+    if request.method == 'POST':
+        search_barcode = request.POST.get('barcode_search', None)
+        try:
+            barcode = Products.objects.get(product_barcode=search_barcode)
+            return HttpResponse(barcode)
+        except Products.DoesNotExist:
+            return HttpResponse("Product not found")
+    else:
+        return render(request, 'product/barcode_search.html')
+"""

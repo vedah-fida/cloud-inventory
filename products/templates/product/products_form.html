@@ -76,5 +76,56 @@
 
 
 </table>
+<p> <strong>updated yesterday</strong></p>
+{% for product in product_added_yesterday %}
+        <p>{{ product.product_name }} </p>
+        <p>{{ product.product_date }}</p>
+        <p>{{ product.category_type }}</p>
+{% endfor %}
+
+<p><strong>updated yesterday</strong></p>
+{% for product in product_added_yesterday %}
+        <p>{{ product.product_name }} 1 </p>
+        <p>{{ product.product_date }} 2 </p>
+        <p>{{ product.category_type }}</p>
+{% endfor %}
+
+<p><strong>updated this month</strong></p>
+{% for product in products_added_this_month %}
+        <p>{{ product.product_name }}</p>
+        <p>{{ product.product_date }}</p>
+        <p>{{ product.category_type }}</p>
+{% endfor %}
+
+<p> <strong>updated today</strong></p>
+{% for product in product_added_today %}
+        <p>{{ product.product_name }} </p>
+        <p>{{ product.product_date }}</p>
+        <p>{{ product.category_type }}</p>
+{% endfor %}
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

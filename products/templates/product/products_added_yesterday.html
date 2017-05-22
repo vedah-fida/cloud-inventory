@@ -1,11 +1,9 @@
 {% extends "product/base.html" %}
-{% block title %}Products {% endblock %}
-
+{% block title %} Products added Yesterday{% endblock %}
 {% block body %}
 
-<!-- products data in a table-->
 <table class="w3-table-all w3-card-4">
-
+    {% if product_added_yesterday %}
     <tr>
         <th>Name</th>
         <th>Date Received</th>
@@ -15,91 +13,25 @@
         <th>Product Price</th>
     </tr>
     <tr>
-        {% for product in products_data %}
+
+        {% for product in product_added_yesterday %}
         <td>{{ product.product_name }}</td>
         <td>{{ product.product_date }}</td>
         <td>{{ product.category_type }}</td>
         <td>{{ product.product_barcode }}</td>
-        <td>{% if product.product_stock %}
-               In Stock
-            {% else %}
-                Out of Stock
-            {% endif %}
-        </td>
+        <td>{{ product.product_stock }}</td>
         <td>{{ product.product_price }}</td>
     </tr>
     {% endfor %}
+    {% else %}
+    <div class="w3-center">
+        <p>No products were added yesterday</p>
+
+    </div>
+    {% endif %}
 
 
 </table>
 
+
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

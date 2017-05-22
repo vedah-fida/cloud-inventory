@@ -12,8 +12,6 @@
     #dropdown-btn:hover{
 		background-color: transparent;
 	}
-
-
     </style>
 </head>
 <body>
@@ -58,10 +56,10 @@
 						All dates <i class="fa fa-caret-down"></i>
 					</button>
 			<div id="demo" class="w3-dropdown-content w3-bar-block">
-				<a href="#" class="w3-bar-item w3-button" style = "width:auto;">Today</a>
-				<a href="#" class="w3-bar-item w3-button" style = "width:auto;">Yesterday</a>
+				<a href="{% url 'products:product_added_today' %}" class="w3-bar-item w3-button" style = "width:auto;">Today</a>
+				<a href="{% url 'products:products_added_yesterday' %}" class="w3-bar-item w3-button" style = "width:auto;">Yesterday</a>
 				<a href="#" class="w3-bar-item w3-button" style = "width:auto;">This Week</a>
-				<a href="#" class="w3-bar-item w3-button" style = "width:auto;">This Month</a>
+				<a href="{% url 'products:products_added_this_month' %}" class="w3-bar-item w3-button" style = "width:auto;">This Month</a>
 			</div>
 				</div>
 		<div class = "w3-bar-item">Enter Barcode</div>
@@ -91,7 +89,6 @@ function myFunction() {
         x.className = x.className.replace(" w3-show", "");
     }
 }
-
 </script>
 
 </body>
