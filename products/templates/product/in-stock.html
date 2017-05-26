@@ -26,20 +26,24 @@
         </td>
         <td>
             <div class="w3-row">
+               <form  action="{% url 'products:stock_status' product.id %}" method="post">
+                    {% csrf_token %}
                 <div class="w3-col l7">
-                    <select class="w3-select w3-small" name="option">
+                    <select class="w3-select w3-small" name="choice">
                         <option value="" disabled selected>Change Stock Status</option>
-                        <option value="1">In stock</option>
-                        <option value="2">Out of Stock</option>
+
+                        <option value="{{ choice.id }}" name = "out-of-stock">Out of Stock</option>
+
                     </select>
                 </div>
                 <div class="w3-col l5">
                     <div class="w3-show-inline-block">
                         <div class="w3-bar" style="padding-left:6px;">
-                            <button class="w3-bar-item w3-button w3-teal w3-small w3-padding-small">Update</button>
+                            <button class="w3-bar-item w3-button w3-teal w3-small w3-padding-small" type="submit">Update</button>
                         </div>
                     </div>
                 </div>
+                </form>
             </div>
         </td>
     </tr>

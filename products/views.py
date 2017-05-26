@@ -58,21 +58,20 @@ def added_yesterday(request):
 
 # get products added this month
 def added_this_month(request):
-    #today = datetime.datetime.now()
+    # today = datetime.datetime.now()
     products_added_this_month = Products.objects.filter(product_date__month=today.month)
     return render(request, 'product/products_added_this_month.html',
                   {'products_added_this_month': products_added_this_month})
 
-"""
-# search barcode entered by user
-def barcode_search(request):
-    if request.method == 'POST':
-        search_barcode = request.POST.get('barcode_search', None)
-        try:
-            barcode = Products.objects.get(product_barcode=search_barcode)
-            return HttpResponse(barcode)
-        except Products.DoesNotExist:
-            return HttpResponse("Product not found")
-    else:
-        return render(request, 'product/barcode_search.html')
-"""
+
+# updating the stock status
+def update_stock_status(request, products_id):
+    Products.objects.filter(pk=products_id).update(product_stock=False)
+    products_in_stock = Products.objects.filter(product_stock=True)
+    return render(request, 'product/in-stock.html', {"products_in_stock": products_in_stock})
+
+
+def search_barcode(request):
+    search = Products.objects.filter(product_barcode__contains=request.POST['barcode_search'])
+    return render(request, 'product/barcode_search.html', {"search": search})
+

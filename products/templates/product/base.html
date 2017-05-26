@@ -62,11 +62,14 @@
 				<a href="{% url 'products:products_added_this_month' %}" class="w3-bar-item w3-button" style = "width:auto;">This Month</a>
 			</div>
 				</div>
+        <form action = "{% url 'products:search_barcode' %}" method = "post" >
+            {% csrf_token %}
 		<div class = "w3-bar-item">Enter Barcode</div>
 			<input type="number" name = "barcode_search" class="w3-bar-item w3-input w3-text-teal" placeholder="Barcode..">
 			<div style = "padding-top:13px;">
-				<button class= "w3-btn w3-green" >Apply</button>
+				<button class= "w3-btn w3-green" type="submit" >Apply</button>
 			</div>
+        </form>
   		</div>
 </div> <br>
 <!--end top bar-->

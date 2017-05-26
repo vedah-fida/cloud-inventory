@@ -26,7 +26,10 @@ urlpatterns = [
     url(r'^month', views.added_this_month, name="products_added_this_month"),
 
     # search for barcode entry by user
-   # url(r'^barcode_search', views.barcode_search, name="barcode_search"),
+    url(r'^search_barcode/$', views.search_barcode, name="search_barcode"),
+
+    # search for barcode entry by user
+    url(r'^stock_status/(?P<products_id>[0-9]+)/$', views.update_stock_status, name="stock_status"),
 
     # this view is used for testing purposes, its contents may change frequently
     url(r'^category/$', views.in_stock, name="get_category"),
