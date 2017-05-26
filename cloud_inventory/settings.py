@@ -103,7 +103,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'EAT'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -116,8 +116,7 @@ USE_TZ = True
 
 
 LOGIN_REDIRECT_URL = 'products/products/base.html'
-#LOGIN_REDIRECT_URL = 'accounts/index_display/'
-#LOGIN_REDIRECT_URL = '/accounts/accounts/user_login.html'
+
 
 
 db_from_env = dj_database_url.config(conn_max_age=500)
