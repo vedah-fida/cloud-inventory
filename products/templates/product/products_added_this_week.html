@@ -1,0 +1,33 @@
+{% extends "product/base.html" %}
+{% block title %} Products added this week {% endblock %}
+{% block body %}
+
+<table class="w3-table-all w3-card-4">
+{% if products_added_this_week %}
+    <tr>
+        <th>Name</th>
+        <th>Date Received</th>
+        <th>Category</th>
+        <th>Barcode</th>
+        <th>Stock Status</th>
+        <th>Product Price</th>
+    </tr>
+    <tr>
+        {% for product in products_added_this_week %}
+        <td>{{ product.product_name }}</td>
+        <td>{{ product.product_date }}</td>
+        <td>{{ product.category_type }}</td>
+        <td>{{ product.product_barcode }}</td>
+        <td>{{ product.product_stock }}</td>
+        <td>{{ product.product_price }}</td>
+        </tr>
+        {% endfor %}
+{% else %}
+    <div class="w3-center">
+        <p>No products have been added this</p>
+    </div>
+{% endif %}
+
+
+</table>
+{% endblock %}

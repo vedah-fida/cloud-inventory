@@ -58,7 +58,7 @@
 			<div id="demo" class="w3-dropdown-content w3-bar-block">
 				<a href="{% url 'products:product_added_today' %}" class="w3-bar-item w3-button" style = "width:auto;">Today</a>
 				<a href="{% url 'products:products_added_yesterday' %}" class="w3-bar-item w3-button" style = "width:auto;">Yesterday</a>
-				<a href="#" class="w3-bar-item w3-button" style = "width:auto;">This Week</a>
+				<a href="{% url 'products:products_added_this_week' %}" class="w3-bar-item w3-button" style = "width:auto;">This Week</a>
 				<a href="{% url 'products:products_added_this_month' %}" class="w3-bar-item w3-button" style = "width:auto;">This Month</a>
 			</div>
 				</div>

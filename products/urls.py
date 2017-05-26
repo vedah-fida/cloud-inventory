@@ -22,6 +22,9 @@ urlpatterns = [
     # search for products added yesterday
     url(r'^yesterday', views.added_yesterday, name="products_added_yesterday"),
 
+    # search for products added this week
+    url(r'^this-week', views.added_this_week, name="products_added_this_week"),
+
     # search for products added this month
     url(r'^month', views.added_this_month, name="products_added_this_month"),
 
