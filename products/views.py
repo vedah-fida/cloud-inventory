@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import HttpResponse
 from .models import Products, Category, Items
 import datetime
-#from datetime import datetime, timedelta
+from products.serializers import ProductsSerializer
+from rest_framework import generics
 
 today = datetime.datetime.now()
 
@@ -89,3 +89,21 @@ def update_stock_status(request, products_id):
 def search_barcode(request):
     search = Products.objects.filter(product_barcode__contains=request.POST['barcode_search'])
     return render(request, 'product/barcode_search.html', {"search": search})
+
+
+# rest_framework view, it will be a class based view
+
+class ProductsList(generics.ListCreateAPIView):
+    queryset = Products.objects.all()
+    serializer_class = ProductsSerializer
+
+
+class ProductsDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Products.objects.all()
+    serializer_class = ProductsSerializer
+
+    """
+    receive the request, update the database product_stock
+    counter check the barcode, update the dbase with the barcode
+    return a success or fail message
+    """

@@ -1,4 +1,5 @@
 from django.conf.urls import include, url
+from rest_framework.urlpatterns import format_suffix_patterns
 
 from . import views
 
@@ -37,4 +38,12 @@ urlpatterns = [
     # this view is used for testing purposes, its contents may change frequently
     url(r'^category/$', views.in_stock, name="get_category"),
 
+    # serialized data
+    url(r'^products/$', views.ProductsList.as_view(), name='product_list'),
+
+    # serialized data
+    url(r'^products/(?P<pk>[0-9]+)/$', views.ProductsDetail.as_view(), name='product_detail'),
+
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)

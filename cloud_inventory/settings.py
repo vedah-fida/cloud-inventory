@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -120,6 +121,7 @@ LOGIN_REDIRECT_URL = 'products/products/base.html'
 
 
 db_from_env = dj_database_url.config(conn_max_age=500)
+
 DATABASES['default'].update(db_from_env)
 
 STATIC_URL = '/static/'
