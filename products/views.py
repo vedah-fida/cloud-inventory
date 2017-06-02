@@ -4,6 +4,9 @@ from .models import Products, Category, Items
 import datetime
 from products.serializers import ProductsSerializer
 from rest_framework import generics
+from django.core import urlresolvers
+from django.shortcuts import HttpResponseRedirect
+from django.db.models import Case, Value, When
 
 today = datetime.datetime.now()
 
@@ -80,9 +83,14 @@ def added_this_month(request):
 @login_required(login_url='/')
 # updating the stock status
 def update_stock_status(request, products_id):
-    Products.objects.filter(pk=products_id).update(product_stock=False)
-    products_in_stock = Products.objects.filter(product_stock=True)
-    return render(request, 'product/in-stock.html', {"products_in_stock": products_in_stock})
+    Products.objects.filter(pk=products_id).update(product_stock=Case
+        (
+        When(product_stock=True, then=Value(False)),
+        default=Value(True)
+    ))
+
+    url = urlresolvers.reverse('products:product_details')
+    return HttpResponseRedirect(url)
 
 
 @login_required(login_url='/')
@@ -102,8 +110,14 @@ class ProductsDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Products.objects.all()
     serializer_class = ProductsSerializer
 
-    """
-    receive the request, update the database product_stock
-    counter check the barcode, update the dbase with the barcode
-    return a success or fail message
-    """
+
+"""
+class ProductsDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Products.objects.filter(product_stock=True)
+    serializer_class = ProductsSerializer
+"""
+"""
+receive the request, update the database product_stock
+counter check the barcode, update the dbase with the barcode
+return a success or fail message
+"""
