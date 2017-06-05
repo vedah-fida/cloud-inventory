@@ -35,8 +35,11 @@ urlpatterns = [
     # search for barcode entry by user
     url(r'^stock_status/(?P<products_id>[0-9]+)/$', views.update_stock_status, name="stock_status"),
 
-    # this view is used for testing purposes, its contents may change frequently
-    url(r'^category/$', views.in_stock, name="get_category"),
+    #monthly_report
+    url(r'^current-month-report', views.ReportsView.as_view(), name="products_reports"),
+
+
+    #url(r'^test', views.previous_month, name="products_reports"),
 
     # serialized data
     url(r'^products/$', views.ProductsList.as_view(), name='product_list'),
@@ -44,6 +47,8 @@ urlpatterns = [
     # serialized data
     url(r'^products/(?P<pk>[0-9]+)/$', views.ProductsDetail.as_view(), name='product_detail'),
 
+    # this view is used for testing purposes, its contents may change frequently
+    url(r'^category/$', views.in_stock, name="get_category"),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

@@ -40,11 +40,11 @@
             <a href="{% url 'products:in-stock' %}" class="w3-bar-item w3-button"> <i class="fa fa-arrow-up" style = "padding-right:0.7em;"></i> In Stock</a>
             <a href="{% url 'products:out-of-stock' %}" class="w3-bar-item w3-button"> <i class="fa fa-arrow-down" style = "padding-right:0.7em;"></i> Out of Stock</a>
             <a href="#" class="w3-bar-item w3-button"> <i class="fa fa-usd" style = "padding-right:1em;"></i>Price Groups</a>
-            <a href="#" class="w3-bar-item w3-button"> <i class="fa fa-pie-chart" style = "padding-right:1em;"></i>Reports</a>
+            <a href="{% url 'products:products_reports' %}" class="w3-bar-item w3-button"> <i class="fa fa-pie-chart" style = "padding-right:1em;"></i>Reports</a>
         </div>
     </div>
     <!-- end sidebar -->
-
+{% block topbar %}
 
     <div class = "w3-rest" style = "margin-left:20%;">
         <!--top bar-->
@@ -72,7 +72,9 @@
         </form>
   		</div>
 </div> <br>
+        {% endblock %}
 <!--end top bar-->
+
          {% block body %}
 
 

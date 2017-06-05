@@ -7,6 +7,7 @@ from rest_framework import generics
 from django.core import urlresolvers
 from django.shortcuts import HttpResponseRedirect
 from django.db.models import Case, Value, When
+from django.views import generic
 
 today = datetime.datetime.now()
 
@@ -109,6 +110,31 @@ class ProductsList(generics.ListCreateAPIView):
 class ProductsDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Products.objects.all()
     serializer_class = ProductsSerializer
+
+
+def current_month(request):
+    current_month = today.month
+    product_month_query = Products.objects.filter(product_date__month=today.month - 1)
+    return render(request, 'product/current_month.html', {'product_month_query': product_month_query})
+
+
+def previous_month(request):
+    product_month_query = Products.objects.filter(product_date__month=today.month - 1)
+    return render(request, 'product/monthly_report.html', {'product_month_query': product_month_query})
+
+
+class ReportsView(generic.ListView):
+    queryset = Products.objects.filter(product_date__month=today.month)
+    template_name = 'product/monthly_report.html'
+    context_object_name = 'current_month_report'
+
+    def current_month(self):
+       return Products.objects.filter(product_date__month=today.month)
+
+    def previous_month(self):
+        return Products.objects.filter(product_date__month=today.month)
+
+
 
 
 """
