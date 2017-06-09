@@ -8,8 +8,8 @@
     <tr>
         <th>Name</th>
         <th>Date Received</th>
+        <th>Barcode</th>
         <th>Category</th>
-
         <th>Stock Status</th>
         <th>Product Price</th>
     </tr>
@@ -17,6 +17,7 @@
         {% for product in search %}
         <td>{{ product.product_name }}</td>
         <td>{{ product.product_date }}</td>
+        <td>{{ product.product_barcode }}</td>
         <td>{{ product.category_type }}</td>
         <td>{% if product.product_stock %}
             In Stock

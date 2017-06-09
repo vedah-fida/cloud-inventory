@@ -2,12 +2,9 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import Products, Category, Items
 import datetime
-from products.serializers import ProductsSerializer
-from rest_framework import generics
 from django.core import urlresolvers
 from django.shortcuts import HttpResponseRedirect
 from django.db.models import Case, Value, When
-from django.views import generic
 
 today = datetime.datetime.now()
 
@@ -96,24 +93,11 @@ def update_stock_status(request, products_id):
 
 @login_required(login_url='/')
 def search_barcode(request):
-    search = Products.objects.filter(product_barcode__contains=request.POST['barcode_search'])
+    search = Products.objects.filter(product_barcode__contains=request.GET['barcode_search'])
     return render(request, 'product/barcode_search.html', {"search": search})
 
 
-# rest_framework view, it will be a class based view
-
-class ProductsList(generics.ListCreateAPIView):
-    queryset = Products.objects.all()
-    serializer_class = ProductsSerializer
-
-
-class ProductsDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Products.objects.all()
-    serializer_class = ProductsSerializer
-
-
 def current_month(request):
-    current_month = today.month
     product_month_query = Products.objects.filter(product_date__month=today.month - 1)
     return render(request, 'product/current_month.html', {'product_month_query': product_month_query})
 
@@ -123,27 +107,8 @@ def previous_month(request):
     return render(request, 'product/monthly_report.html', {'product_month_query': product_month_query})
 
 
-class ReportsView(generic.ListView):
-    queryset = Products.objects.filter(product_date__month=today.month)
-    template_name = 'product/monthly_report.html'
-    context_object_name = 'current_month_report'
-
-    def current_month(self):
-       return Products.objects.filter(product_date__month=today.month)
-
-    def previous_month(self):
-        return Products.objects.filter(product_date__month=today.month)
-
-
-
-
-"""
-class ProductsDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Products.objects.filter(product_stock=True)
-    serializer_class = ProductsSerializer
-"""
-"""
-receive the request, update the database product_stock
-counter check the barcode, update the dbase with the barcode
-return a success or fail message
-"""
+def Reports(request):
+    current_month_query = Products.objects.filter(product_date__month=today.month)
+    previous_month_query = Products.objects.filter(product_date__month=today.month - 1)
+    return render(request, 'product/monthly_report.html',
+                  {'current_month_query': current_month_query, 'previous_month_query': previous_month_query})
