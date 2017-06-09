@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ac513c2-e773-4443-9d5e-0d131e471280" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/products/api/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/products/api/serializers.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/products/api/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/products/api/views.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/products/crud.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cloud_inventory/settings.py" afterPath="$PROJECT_DIR$/cloud_inventory/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cloud_inventory/urls.py" afterPath="$PROJECT_DIR$/cloud_inventory/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products/templates/product/barcode_search.html" afterPath="$PROJECT_DIR$/products/templates/product/barcode_search.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products/templates/product/base.html" afterPath="$PROJECT_DIR$/products/templates/product/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products/templates/product/current_month.html" afterPath="$PROJECT_DIR$/products/templates/product/current_month.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products/templates/product/monthly_report.html" afterPath="$PROJECT_DIR$/products/templates/product/monthly_report.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products/urls.py" afterPath="$PROJECT_DIR$/products/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products/views.py" afterPath="$PROJECT_DIR$/products/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,7 +23,7 @@
       <file leaf-file-name="serializers.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/products/api/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
+            <state relative-caret-position="357">
               <caret line="22" column="45" lean-forward="false" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
@@ -49,8 +35,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/products/api/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+            <state relative-caret-position="323">
+              <caret line="23" column="37" lean-forward="false" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
               <folding>
                 <element signature="e#0#119#0" expanded="true" />
               </folding>
@@ -58,11 +44,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/products/api/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
               <caret line="3" column="103" lean-forward="false" selection-start-line="3" selection-start-column="103" selection-end-line="3" selection-end-column="103" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cloud_inventory/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="387">
+              <caret line="101" column="33" lean-forward="true" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="82" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -108,7 +114,6 @@
         <option value="$PROJECT_DIR$/products/templates/product/products_added_this_month.html" />
         <option value="$PROJECT_DIR$/products/templates/product/products_added_today.html" />
         <option value="$PROJECT_DIR$/products/templates/product/products_added_this_week.html" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/products/templates/product/out-of-stock.html" />
         <option value="$PROJECT_DIR$/products/serializers.py" />
         <option value="$PROJECT_DIR$/products/templates/product/monthy_report.html" />
@@ -127,11 +132,12 @@
         <option value="$PROJECT_DIR$/products/api/urls.py" />
         <option value="$PROJECT_DIR$/products/api/views.py" />
         <option value="$PROJECT_DIR$/products/api/serializers.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-56" />
+    <option name="x" value="64" />
     <option name="y" value="46" />
     <option name="width" value="1320" />
     <option name="height" value="780" />
@@ -154,8 +160,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -197,6 +203,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cloud_inventory" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cloud_inventory" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cloud_inventory" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -417,7 +437,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-56" y="46" width="1320" height="780" extended-state="0" />
+    <frame x="64" y="46" width="1320" height="780" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12576687" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -639,14 +659,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/products/templates/product/out-of-stock.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -675,13 +687,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cloud_inventory/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="102" column="1" lean-forward="false" selection-start-line="102" selection-start-column="1" selection-end-line="102" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cloud_inventory/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -707,7 +712,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1343">
           <caret line="79" column="75" lean-forward="false" selection-start-line="79" selection-start-column="75" selection-end-line="79" selection-end-column="75" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -715,7 +719,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="16" lean-forward="false" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -723,7 +726,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="960">
           <caret line="61" column="64" lean-forward="false" selection-start-line="61" selection-start-column="64" selection-end-line="61" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -731,7 +733,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -739,7 +740,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="75" column="89" lean-forward="false" selection-start-line="75" selection-start-column="89" selection-end-line="75" selection-end-column="89" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -747,7 +747,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -755,9 +754,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="302">
           <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#35#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -765,7 +761,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="455">
           <caret line="39" column="15" lean-forward="false" selection-start-line="39" selection-start-column="15" selection-end-line="39" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -773,13 +768,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/products/api/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state relative-caret-position="357">
           <caret line="22" column="45" lean-forward="false" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
@@ -789,8 +783,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/products/api/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+        <state relative-caret-position="323">
+          <caret line="23" column="37" lean-forward="false" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
           <folding>
             <element signature="e#0#119#0" expanded="true" />
           </folding>
@@ -801,6 +795,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="103" lean-forward="false" selection-start-line="3" selection-start-column="103" selection-end-line="3" selection-end-column="103" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud_inventory/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="101" column="33" lean-forward="true" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
