@@ -5,8 +5,8 @@ from .views import ProductListAPIView, ProductDetailAPIView, ProductUpdateAPIVie
 
 urlpatterns = [
     url(r'^$', ProductListAPIView.as_view(), name='products-list'),
-    url(r'^create$', ProductsCreateUpdateAPIView.as_view(), name='products-update'),
     url(r'^(?P<product_barcode>\d+)/$', ProductDetailAPIView.as_view(), name='products-details'),
     url(r'^(?P<product_barcode>\d+)/update/$', ProductUpdateAPIView.as_view(), name='products-details-update'),
+    url(r'^(?P<product_barcode>\d+)/create/$', ProductsCreateUpdateAPIView.as_view(), name='products-details-update'),
 
 ]
