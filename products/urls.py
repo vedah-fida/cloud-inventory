@@ -36,9 +36,10 @@ urlpatterns = [
     url(r'^stock_status/(?P<products_id>[0-9]+)/$', views.update_stock_status, name="stock_status"),
 
     # monthly_report
-    url(r'^monthly-report/$', views.Reports, name="products_reports"),
+    url(r'^monthly-report/$', views.reports, name="products_reports"),
     # producrs in stock
     url(r'^category/$', views.in_stock, name="get_category"),
+
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

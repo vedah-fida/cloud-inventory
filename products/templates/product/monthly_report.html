@@ -20,7 +20,7 @@
                           <header class="w3-container w3-teal">
                             <span onclick="document.getElementById('id01').style.display='none'"
                                   class="w3-button w3-display-topright">&times;</span>
-                            <h2>Current Month {{ product_name }} Report</h2>
+                            <h2> {{ current_month }}  Monthly Report</h2>
                           </header >
                             <table class="w3-table w3-striped w3-text-black">
 
@@ -38,7 +38,13 @@
                                     <td>{{ product.product_date }}</td>
                                     <td>{{ product.category_type }}</td>
                                     <td>{{ product.product_barcode }}</td>
-                                    <td>{{ product.product_stock }}</td>
+                                    <td>{% if product.product_stock %}
+                                        In Stock
+                                        {% else %}
+                                        Out of Stock
+                                     {% endif %}
+                                    </td>
+
                                     <td>{{ product.product_price }}</td>
                                 </tr>
                                 {% endfor %}
@@ -64,7 +70,7 @@
                           <header class="w3-container w3-teal">
                             <span onclick="document.getElementById('id02').style.display='none'"
                                   class="w3-button w3-display-topright">&times;</span>
-                              <h2>Previous Month Report</h2>
+                              <h2>{{ previous_month }} Monthly Report</h2>
                           </header>
                               <table class="w3-table w3-striped w3-text-black">
 
@@ -82,7 +88,13 @@
                                     <td>{{ product.product_date }}</td>
                                     <td>{{ product.category_type }}</td>
                                     <td>{{ product.product_barcode }}</td>
-                                    <td>{{ product.product_stock }}</td>
+                                    <td>{% if product.product_stock %}
+                                        In Stock
+                                        {% else %}
+                                        Out of Stock
+                                    {% endif %}
+                                    </td>
+
                                     <td>{{ product.product_price }}</td>
                                 </tr>
                                 {% endfor %}

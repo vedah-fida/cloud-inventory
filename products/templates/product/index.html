@@ -11,6 +11,7 @@
         <th>Date Received</th>
         <th>Category</th>
         <th>Barcode</th>
+        <th>Quantity</th>
         <th>Stock Status</th>
         <th>Product Price</th>
     </tr>
@@ -20,10 +21,11 @@
         <td>{{ product.product_date }}</td>
         <td>{{ product.category_type }}</td>
         <td>{{ product.product_barcode }}</td>
+        <td> {{ product.product_count }}</td>
         <td>{% if product.product_stock %}
-               In Stock
+            In Stock
             {% else %}
-                Out of Stock
+            Out of Stock
             {% endif %}
         </td>
         <td>{{ product.product_price }}</td>
@@ -32,6 +34,7 @@
 
 
 </table>
+
 
 {% endblock %}
 

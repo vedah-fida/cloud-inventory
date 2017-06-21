@@ -9,6 +9,8 @@ class ProductsListSerializers(ModelSerializer):
             'product_name', 'product_barcode', 'product_stock',
 
         )
+
+
 class ProductsDetailSerializers(ModelSerializer):
     class Meta:
         model = Products
@@ -16,6 +18,8 @@ class ProductsDetailSerializers(ModelSerializer):
             'product_name', 'product_barcode', 'product_stock', 'product_price',
 
         )
+
+
 class ProductsCreateUpdateSerializers(ModelSerializer):
     class Meta:
         model = Products
@@ -23,13 +27,12 @@ class ProductsCreateUpdateSerializers(ModelSerializer):
             'product_name', 'product_barcode',
 
         )
-"""
-data = {
-    "product_name" : "Guiness",
-    "product_barcode" : "99999999",
-    "product_stock" : "True",
-
-}
-"""
 
 
+class ProductCheckoutSerializers(ModelSerializer):
+    class Meta:
+        model = Products
+        fields = (
+            'product_name', 'product_barcode', 'product_stock', 'product_price', 'product_count',
+
+        )

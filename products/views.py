@@ -4,7 +4,8 @@ from .models import Products, Category, Items
 import datetime
 from django.core import urlresolvers
 from django.shortcuts import HttpResponseRedirect
-from django.db.models import Case, Value, When
+from django.db.models import Case, Value, When, Count
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 today = datetime.datetime.now()
 
@@ -31,6 +32,16 @@ def get_category(request):
 # connecting to the database and get the ALL the products
 def get_products(request):
     products_data = Products.objects.all()
+    paginator = Paginator(products_data, 5)
+    page = request.GET.get('page')
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        # if page is not an int then deliver first page
+        products = paginator.page(1)
+    except EmptyPage:
+        # if page is out of range i.e , (9999), deliver last page of result
+        products = paginator.page(paginator.num_pages)
     return render(request, 'product/index.html', {"products_data": products_data})
 
 
@@ -61,6 +72,7 @@ def added_yesterday(request):
                   {'product_added_yesterday': product_added_yesterday})
 
 
+@login_required(login_url='/')
 # added this week
 def added_this_week(request):
     added_last_week = datetime.datetime.now() - datetime.timedelta(days=7)
@@ -97,18 +109,27 @@ def search_barcode(request):
     return render(request, 'product/barcode_search.html', {"search": search})
 
 
+@login_required(login_url='/')
 def current_month(request):
     product_month_query = Products.objects.filter(product_date__month=today.month - 1)
     return render(request, 'product/current_month.html', {'product_month_query': product_month_query})
 
 
+@login_required(login_url='/')
 def previous_month(request):
     product_month_query = Products.objects.filter(product_date__month=today.month - 1)
     return render(request, 'product/monthly_report.html', {'product_month_query': product_month_query})
 
 
-def Reports(request):
+@login_required(login_url='/')
+def reports(request):
+    current_month = today.strftime('%B')
+    first = today.replace(day=1)
+    lastmonth = first - datetime.timedelta(days=1)
+    previous_month = lastmonth.strftime("%B")
+
     current_month_query = Products.objects.filter(product_date__month=today.month)
     previous_month_query = Products.objects.filter(product_date__month=today.month - 1)
     return render(request, 'product/monthly_report.html',
-                  {'current_month_query': current_month_query, 'previous_month_query': previous_month_query})
+                  {'current_month_query': current_month_query, 'previous_month_query': previous_month_query,
+                   'current_month': current_month, 'previous_month':previous_month})

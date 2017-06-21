@@ -10,18 +10,13 @@ class Category(models.Model):
 
 
 class Products(models.Model):
-    IN_STOCK = "IS"
-    OUT_OF_STOCK = "OS"
-    STOCK_CHOICES = (
-        (IN_STOCK, 'In Stock'),
-        (OUT_OF_STOCK, 'Out of Stock'),
-    )
     product_name = models.CharField(max_length=25)
     category_type = models.ForeignKey(Category, on_delete=models.CASCADE)
     product_price = models.IntegerField()
     product_barcode = models.IntegerField()
     product_stock = models.BooleanField(default=True)
     product_date = models.DateField()
+    product_count = models.IntegerField(default=0)
 
     def __str__(self):
         return (self.product_name)

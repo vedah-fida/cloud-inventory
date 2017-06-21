@@ -1,0 +1,30 @@
+{% extends 'product/base.html' %}
+{% block tile %} Block Count {% endblock %}
+
+{% block body %}
+<p> product_name </p>
+
+<p> {{ product_count }} </p>
+<table class="w3-table-all w3-card-4">
+
+    <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Category</th>
+        <th>Current Price</th>
+        <th>New Price</th>
+        <th>Update</th>
+    </tr>
+    <tr>
+        {% for product_count in all_products %}
+        <td>{{ product_count.product_name }}</td>
+        <td>{{ product_count.product_count }}</td>
+        <td>{{ product_count.category_type }}</td>
+        <td>{{ product_count.product_price }}</td>
+        <td>{{ product_count.product_stock }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+{% endblock %}
+
