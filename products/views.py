@@ -55,11 +55,13 @@ def in_stock(request):
     try:
         products = paginator.page(page)
     except PageNotAnInteger:
+        # if page is not an int then deliver first page
         products = paginator.page(1)
     except EmptyPage:
+        # if page is out of range i.e , (9999), deliver last page of result
         products = paginator.page(paginator.num_pages)
 
-    return render(request, 'product/in-stock.html', {"products_in_stock": products_in_stock, "products": products})
+    return render(request, 'product/in-stock.html', {"products": products})
 
 
 @login_required(login_url='/')
