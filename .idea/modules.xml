@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/cloud_inventory.iml" filepath="$PROJECT_DIR$/.idea/cloud_inventory.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../ken_projects/polls project/mysite/.idea/mysite.iml" filepath="$PROJECT_DIR$/../../../../../ken_projects/polls project/mysite/.idea/mysite.iml" />
     </modules>
   </component>
 </project>

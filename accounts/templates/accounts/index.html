@@ -12,6 +12,12 @@
 		width:100%;
 		background-image: url("static/accounts/stock.png");
 	}
+    #form-row{
+        padding-left: 28.5%;
+    }
+    #submit-button-row{
+        padding-top:1em;
+    }
 
 
 
@@ -39,34 +45,28 @@
     </div>
 
     <form class="w3-container" action="{% url 'accounts:login_user' %}" method="post">
-        {% csrf_token %}
-
-        <div class="w3-row" style="padding-bottom:2em;">
-            <div class="w3-container w3-col l2" style="width:15%;">
-                <label for="username">Username</label>
-
+        <div class = "w3-row " id = "form-row">
+         {% csrf_token %}
+            <div class = "w3-container w3-col l4">
+                <label>Username </label> <br>
+                <input type = "text" name = "username" placeholder = "Username"/>
             </div>
 
-            <div class="w3-container w3-col l4">
-                <input id="username" type="text" name="username" required/>
+            <div class = "w3-container w3-col l4">
+                <label>Password </label> <br>
+                <input id = "password" type = "password" class = "validate" name = "password" placeholder = "Password"/>
             </div>
-
-            <div class="w3-container w3-col l2" style="width:15%;">
-                <label for="password">Password</label>
-
-            </div>
-            <div class="w3-container w3-col l4">
-                <input id="password" type="password" class="validate" name="password" required/>
-            </div>
+             
         </div>
 
-
-        <div class="w3-row" style="padding-bottom:2em;">
-            <div class="w3-center">
+        <div class="w3-row" id = "submit-button-row">
+           <div class = "w3-center">
                 <button class="w3-button w3-teal" type="submit">Login</button>
             </div>
         </div>
+
     </form>
+
     {% block body %}
 
     {% endblock %}

@@ -13,12 +13,15 @@
 		background-color: transparent;
 	}
 
+
+
     </style>
 </head>
 <body>
 
 <div class="w3-container-fluid">
     <div class="w3-row w3-indigo">
+
         <div class="w3-col l6">
             <h3 class="w3-indigo" style="padding-left:1em;"> Cloud Inventory</h3>
         </div>
@@ -72,7 +75,7 @@
                            style="width:auto;">This Month</a>
                     </div>
                 </div>
-                <form action="{% url 'products:search_barcode' %}" method="GET" name = "q">
+                <form action="{% url 'products:search_barcode' %}" method="GET" name="q">
                     {% csrf_token %}
                     <div class="w3-bar-item">Enter Barcode</div>
                     <input type="number" name="barcode_search" class="w3-bar-item w3-input w3-text-teal"
@@ -106,6 +109,8 @@ function myFunction() {
         x.className = x.className.replace(" w3-show", "");
     }
 }
+
+
 
 </script>
 

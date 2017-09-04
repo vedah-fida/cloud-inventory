@@ -28,4 +28,24 @@
 
 
 </table>
+<div class="w3-center">
+    <div class="w3-bar w3-large">
+        <div class="pagination">
+    <span class="step-links">
+        {% if products.has_previous %}
+        <a href="?page={{ products.previous_page_number }}" class="w3-button w3-hover-teal">previous</a>
+        {% endif %}
+    </span>
+
+            <span class="current">
+        Page {{ products.number }} of {{ products.paginator.num_pages }}
+    </span>
+            <span>
+    {% if products.has_next %}
+    <a href="?page={{ products.next_page_number }}" class="w3-hover-blue">next</a>
+    {% endif %}
+    </span>
+        </div>
+    </div>
+</div>
 {% endblock %}

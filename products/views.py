@@ -32,7 +32,8 @@ def get_category(request):
 # connecting to the database and get the ALL the products
 def get_products(request):
     products_data = Products.objects.all()
-    paginator = Paginator(products_data, 5)
+
+    paginator = Paginator(products_data, 12)
     page = request.GET.get('page')
     try:
         products = paginator.page(page)
@@ -42,19 +43,39 @@ def get_products(request):
     except EmptyPage:
         # if page is out of range i.e , (9999), deliver last page of result
         products = paginator.page(paginator.num_pages)
-    return render(request, 'product/index.html', {"products_data": products_data})
+    return render(request, 'product/index.html', {"products": products})
 
 
 @login_required(login_url='/')
 def in_stock(request):
     products_in_stock = Products.objects.filter(product_stock=True)
-    return render(request, 'product/in-stock.html', {"products_in_stock": products_in_stock})
+
+    paginator = Paginator(products_in_stock, 12)
+    page = request.GET.get('page')
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        products = paginator.page(1)
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
+
+    return render(request, 'product/in-stock.html', {"products_in_stock": products_in_stock, "products": products})
 
 
 @login_required(login_url='/')
 def out_of_stock(request):
     products_out_of_stock = Products.objects.filter(product_stock=False)
-    return render(request, 'product/out-of-stock.html', {"products_out_of_stock": products_out_of_stock})
+    paginator = Paginator(products_out_of_stock, 12)
+    page = request.GET.get('page')
+
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        products = paginator.page(1)
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
+
+    return render(request, 'product/out-of-stock.html', {"products": products})
 
 
 @login_required(login_url='/')
@@ -132,4 +153,4 @@ def reports(request):
     previous_month_query = Products.objects.filter(product_date__month=today.month - 1)
     return render(request, 'product/monthly_report.html',
                   {'current_month_query': current_month_query, 'previous_month_query': previous_month_query,
-                   'current_month': current_month, 'previous_month':previous_month})
+                   'current_month': current_month, 'previous_month': previous_month})
